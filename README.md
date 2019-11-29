@@ -1,4 +1,4 @@
-# Strawberry
+# 🍓 Strawberry 🍓
 
 Reads actions from Trello (using the trello API) and saves each action as a row in output.csv
 
