@@ -8,11 +8,11 @@ import os
 from dotenv import load_dotenv
 load_dotenv()
 
-OUTPUT_FILENAME = 'output.csv'
-
 BOARD_ID = os.getenv("TRELLO_BOARD_ID")
 TRELLO_API_KEY = os.getenv('TRELLO_API_KEY')
 TRELLO_TOKEN = os.getenv('TRELLO_TOKEN')
+
+output_filename = f'output-{BOARD_ID}.csv'
 
 keep_fetching = True
 BASE_URL = "https://api.trello.com/1/boards/{board_id}/actions/?key={api_key}&token={token}&limit=1000".format(
@@ -22,7 +22,7 @@ BASE_URL = "https://api.trello.com/1/boards/{board_id}/actions/?key={api_key}&to
 
 url = BASE_URL
 
-with open(OUTPUT_FILENAME, mode='w') as csv_file:
+with open(output_filename, mode='w') as csv_file:
     # , quoting=csv.QUOTE_MINIMAL)
     csv_writer = csv.writer(csv_file, delimiter=',', quotechar='"')
     # headers
